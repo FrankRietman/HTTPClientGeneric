@@ -1,4 +1,4 @@
-## This library is a modified version of arduino-esp32 HTTPClient by Markus Sattler.
+### This library is a modified version of arduino-esp32 HTTPClient.
 
 The problem with the built-in library is that it only supports WiFiClient(Secure).
 
