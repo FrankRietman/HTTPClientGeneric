@@ -929,7 +929,11 @@ bool HTTPClientGeneric::hasHeader(const char* name)
  */
 bool HTTPClientGeneric::connect(void)
 {
-    if(connected()) {
+    if (!_client) {
+        log_d("HTTPClientGeneric::begin was not called or returned error");
+        return false;
+    }
+    if(_client->connected()) {
         if(_reuse) {
             log_d("already connected, reusing connection");
         } else {
@@ -939,10 +943,6 @@ bool HTTPClientGeneric::connect(void)
             _client->read();
         }
         return true;
-    }
-    if (!_client) {
-        log_d("HTTPClientGeneric::begin was not called or returned error");
-        return false;
     }
     if (_ip == nullptr)
     {
