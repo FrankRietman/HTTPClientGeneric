@@ -203,7 +203,7 @@ void HTTPClientGeneric::end(void)
  */
 void HTTPClientGeneric::disconnect(bool preserveClient)
 {
-    if(connected()) {
+    if(_client->connected()) {
         if(_client->available() > 0) {
             log_d("still data in buffer (%d), clean up.\n", _client->available());
                 _client->flush();
@@ -947,23 +947,30 @@ bool HTTPClientGeneric::connect(void)
     if (_ip == nullptr)
     {
         if(!_client->connect(_host.c_str(), _port)) {
-            log_d("failed connect to %s:%u", _host.c_str(), _port);
-            return false;
+            log_d("failed connect to %s:%u. Retrying...", _host.c_str(), _port);
+            delay(100);
+            if (!_client->connect(_host.c_str(), _port))
+            {
+                log_d("failed again");
+                return false;
+            }
         }
         log_d(" connected to %s:%u", _host.c_str(), _port);
     }
     else {
         if(!_client->connect(*_ip, _port)) {
-            log_d("failed connect to %s:%u", _ip->toString().c_str(), _port);
-            return false;
+            log_d("failed connect to %s:%u. Retrying...", _ip->toString().c_str(), _port);
+            delay(100);
+            if(!_client->connect(*_ip, _port)) {
+                log_d("failed again.");
+                return false;
+            }
         }
         log_d(" connected to %s:%u", _ip->toString().c_str(), _port);
     }
 
     // set Timeout for Client and for Stream::readBytesUntil() and Stream::readStringUntil()
-    _client->setTimeout((_tcpTimeout + 500) / 1000);	
-
-
+    _client->setTimeout((_tcpTimeout + 500) / 1000);
 
 /*
 #ifdef ESP8266
