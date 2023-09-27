@@ -2,12 +2,13 @@
 /**
  * HTTPClientGeneric.cpp
  *
- * Created on: 09.27.2023
+ * Created on: 02.11.2015
  *
- * Copyright (c) 2023 Yvar Dankers. All rights reserved.
+ * Copyright (c) 2015 Markus Sattler. All rights reserved.
  * This file is part of the HTTPClientGeneric for Arduino.
  * Port to ESP32 by Evandro Luis Copercini (2017), 
- * changed fingerprints to CA verification. 												 
+ * changed fingerprints to CA verification.
+ * Modified to generic client by Yvar Dankers (2023). 												 
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

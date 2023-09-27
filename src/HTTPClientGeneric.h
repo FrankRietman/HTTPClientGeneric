@@ -7,6 +7,7 @@
  * This file is part of the HTTPClientGeneric for Arduino.
  * Port to ESP32 by Evandro Luis Copercini (2017), 
  * changed fingerprints to CA verification. 	
+ * Modified into generic client by Yvar Dankers (2023). 	
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
