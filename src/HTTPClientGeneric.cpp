@@ -231,7 +231,7 @@ void HTTPClientGeneric::disconnect(bool preserveClient)
 bool HTTPClientGeneric::connected()
 {
     if(_client) {
-        return ((_client->available() > 0) || _client->connected());
+        return (_client->connected() || (_client->available() > 0));
     }
     return false;
 }
