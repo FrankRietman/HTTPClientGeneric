@@ -954,10 +954,10 @@ bool HTTPClientGeneric::connect(void)
     }
     else {
         if(!_client->connect(*_ip, _port)) {
-            log_d("failed connect to %s:%u", _ip.toString().c_str(), _port);
+            log_d("failed connect to %s:%u", _ip->toString().c_str(), _port);
             return false;
         }
-        log_d(" connected to %s:%u", ip.toString().c_str(), _port);
+        log_d(" connected to %s:%u", ip->toString().c_str(), _port);
     }
 
     // set Timeout for Client and for Stream::readBytesUntil() and Stream::readStringUntil()
