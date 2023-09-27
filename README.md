@@ -1,4 +1,4 @@
-## This library is a modified version of arduino-esp32 HTTPClient by Markus Sattler.
+### This library is a modified version of arduino-esp32 HTTPClient.
 
 The problem with the built-in library is that it only supports WiFiClient(Secure).
 
@@ -6,7 +6,7 @@ This modification supports the usage of any Client (EthernetClient, SSLClient, W
 
 To make this work, the following methods have been removed:
 
-```
+```C
     bool begin(String url);
     bool begin(String url, const char* CAcert);
     bool begin(String host, uint16_t port, String uri = "/");
@@ -18,7 +18,7 @@ To make this work, the following methods have been removed:
 An HTTPClientGeneric instance can be initialized by providing a client reference, so ensure that your client's
 lifetime exceeds that of the HTTPClientGeneric instance.
 
-```
+```C
     bool begin(Client &client, String url);
     bool begin(Client &client, String host, uint16_t port, String uri = "/", bool https = false);
     bool begin(Client &client, IPAddress ip, uint16_t port, String uri = "/", bool https = false);
