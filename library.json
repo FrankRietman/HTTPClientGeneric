@@ -1,15 +1,15 @@
 {
     "name": "HTTPClientGeneric",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Generic (ethernet, WiFi, SSL) HTTP Client for ESP32",
     "keywords": "HTTPClient, ESP32, Ethernet, WiFi, SSL, Https",
     "repository":
     {
       "type": "git",
-      "url": "https://github.com/monsieurvor/httpclientgeneric.git"
+      "url": "https://github.com/FrankRietman/httpclientgeneric.git"
     },
     "license": "MIT",
-    "homepage": "https://github.com/monsieurvor/httpclientgeneric.git",
-    "frameworks": "arduino",
+    "homepage": "https://github.com/FrankRietman/httpclientgeneric.git",
+    "frameworks": "ESP",
     "platforms": "espressif32"
   }

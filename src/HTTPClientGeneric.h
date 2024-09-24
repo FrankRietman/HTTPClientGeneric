@@ -227,6 +227,9 @@ public:
     void resetCookieJar();
     void clearAllCookies();
 
+    ///Disconnecting
+    void forceDisconnect();
+
 protected:
     struct RequestArgument {
         String key;

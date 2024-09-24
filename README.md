@@ -1,3 +1,28 @@
+### My addition
+I use this libary in conjunction with a WebSocket libary. This gave me connection issues. That's why I have added a forceDisconnect() function which closes the connection.
+
+```c++
+/**
+ * force disconnect
+ * close the TCP socket
+ */
+void HTTPClientGeneric::forceDisconnect()
+{
+    if (connected())
+    {
+        if (_client->available() > 0)
+        {
+            log_d("still data in buffer (%d), clean up.\n", _client->available());
+            _client->flush();
+        }
+        log_d("tcp stop");
+        _client->stop();
+        _client = nullptr;
+    }
+    log_d("tcp is closed\n");
+}
+```
+
 ### This library is a modified version of arduino-esp32 HTTPClient.
 
 The problem with the built-in library is that it only supports WiFiClient(Secure).
